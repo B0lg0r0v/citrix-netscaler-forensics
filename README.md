@@ -133,7 +133,7 @@ normal files which have the setuid bit set
 ```
 
 # Launch the THOR APT Scanner
-@Neo23x0 a.k.a Florian Roth did a pretty good guide on how to use the free version of the THOR APT Scanenr to scan the citrix ADC.<br><br>
+[@Neo23x0](https://github.com/Neo23x0) a.k.a Florian Roth did a pretty good guide on how to use the free version of the THOR APT Scanenr to scan the citrix ADC.<br><br>
 Follow the link: https://www.nextron-systems.com/2020/01/14/automated-citrix-netscaler-forensic-analysis-with-thor/
 
 
