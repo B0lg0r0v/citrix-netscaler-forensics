@@ -2,7 +2,7 @@
 This repository provides a comprehensive list of commands & artifacts to search for while performing a forensic investigation on Citrix ADC appliances. Contributions are welcome.<br>
 
 # To-Do
-I will make a wrapper around these commands and provide an `.sh` file.
+I will make a wrapper around these commands and provide a `.sh` file.
 
 # Forensics
 
