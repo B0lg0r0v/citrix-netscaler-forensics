@@ -132,6 +132,11 @@ normal files which have the setuid bit set
 -r-sr-xr-x 1 root wheel 74008 Jul 10 18:09 /usr/libexec/ssh-keysign
 ```
 
+# Launch the THOR APT Scanner
+@Neo23x0 a.k.a Florian Roth did a pretty good guide on how to use the free version of the THOR APT Scanenr to scan the citrix ADC.<br><br>
+Follow the link: https://www.nextron-systems.com/2020/01/14/automated-citrix-netscaler-forensic-analysis-with-thor/
+
+
 # References
 2024-01-26, https://trustedsec.com/blog/netscaler-remote-code-execution-forensics<br>
 2024-01-26, https://www.mandiant.com/resources/blog/session-hijacking-citrix-cve-2023-4966<br>
