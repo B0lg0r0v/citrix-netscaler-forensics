@@ -1,10 +1,16 @@
 # Citrix ADC Forensics
 This repository provides a comprehensive list of commands & artifacts to search for while performing a forensic investigation on Citrix ADC appliances. Contributions are welcome.<br>
 
+# Table Of Contents
+- [To-Do](#to-do)
+- [Manual Forensics](#manual-forensics)
+- [Launch the THOR APT Scanner](#launch-the-thor-apt-scanner)
+- [References](#references)
+
 # To-Do
 I will make a wrapper around these commands and provide a `.sh` file.
 
-# Forensics
+# Manual Forensics
 
 Generally located log files:
 ```
