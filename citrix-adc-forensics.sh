@@ -1,9 +1,14 @@
 #!/usr/bin/bash
 # Forensics Script for Citrix ADC
 
-echo -e "#----- Generating Citrix ADC Forensics Report -----#"
+echo -e "\n#----- Generating Citrix ADC Forensics Report -----#"
 echo -e "Author: B0lg0r0v"
 echo -e "https://root.security"
+
+if [ "$EUID" -ne 0 ]
+  then echo -e "Run the script as root.\n"
+  exit
+fi
 
 if [ ! -d "forensics" ]; then
     mkdir forensics
