@@ -1,5 +1,5 @@
-# Citrix ADC Forensics
-This repository provides a comprehensive list of commands & artifacts to search for while performing a forensic investigation on Citrix ADC appliances. Contributions are welcome.<br>
+# Citrix Netscaler Forensics
+This repository provides a comprehensive list of commands & artifacts to search for while performing a forensic investigation on Citrix Netscaler appliances. Contributions are welcome.<br>
 
 # Table Of Contents
 - [Automated Script](#automated-script)
