@@ -1,14 +1,19 @@
-# Citrix ADC Forensics
-This repository provides a comprehensive list of commands & artifacts to search for while performing a forensic investigation on Citrix ADC appliances. Contributions are welcome.<br>
+# Citrix Netscaler Forensics
+This repository provides a comprehensive list of commands & artifacts to search for while performing a forensic investigation on Citrix Netscaler appliances. Contributions are welcome.<br>
 
 # Table Of Contents
-- [To-Do](#to-do)
+- [Automated Script](#automated-script)
 - [Manual Forensics](#manual-forensics)
 - [Launch the THOR APT Scanner](#launch-the-thor-apt-scanner)
 - [References](#references)
 
-# To-Do
-I will make a wrapper around these commands and provide a `.sh` file.
+# Automated Script
+I've made a small shell script which acts as a wrapper around these commands. You can, if you want to automate the process (although I still recommend to double check manually), run the script directly on the ADC appliance.
+
+```
+chmod +x citrix-adc-forensics.sh
+./citrix-adc-forensics.sh
+```
 
 # Manual Forensics
 
