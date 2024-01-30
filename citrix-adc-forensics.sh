@@ -9,8 +9,8 @@ NC='\033[0m'
 #----------------------------------#
 
 echo -e "\n${YELLOW}#----- Generating Citrix ADC Forensics Report -----#${NC}"
-echo -e "${YELLOW}#Author: B0lg0r0v${NC}"
-echo -e "${YELLOW}#https://root.security${NC}"
+echo -e "${YELLOW}Author: B0lg0r0v${NC}"
+echo -e "${YELLOW}https://root.security${NC}"
 
 if [ "$EUID" -ne 0 ]
   then echo -e "Run the script as root.\n"
@@ -45,7 +45,7 @@ if [ ! -d "forensics/web_shells" ]; then
     mkdir forensics/web_shells
 fi
 
-echo -e "Citrix ADC Version: $(cat /var/nsinstall/adc.version)"
+echo -e "\nCitrix ADC Version: $(cat /var/nsinstall/adc.version)"
 #cat /var/nsinstall/adc.version
 
 echo -e "\n[+] Checking Failed Login Attempts by IP..."
@@ -123,7 +123,7 @@ find / -type f -name *.php* -not -path "/var/netscaler/gui/admin_ui/*" -not -pat
 echo -e "[+] Checking for setuid binaries..."
 find / -perm -4000 -type f -exec ls -l {} \; 2>/dev/null > forensics/setuid_binaries.txt
 
-echo -e "\nResults saved in $(current_directory)/forensics"
+echo -e "\n ${GREEN}Results saved in $(pwd)/forensics ${NC}"
 
 
 
