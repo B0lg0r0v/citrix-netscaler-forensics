@@ -11,6 +11,7 @@ This repository provides a comprehensive list of commands & artifacts to search 
 I've made a small shell script which acts as a wrapper around these commands. You can, if you want to automate the process (although I still recommend to double check manually), run the script directly on the ADC appliance.
 
 ```
+curl -o citrix-adc-forensics.sh https://raw.githubusercontent.com/B0lg0r0v/citrix-netscaler-forensics/main/citrix-adc-forensics.sh
 chmod +x citrix-adc-forensics.sh
 ./citrix-adc-forensics.sh
 ```
