@@ -109,7 +109,7 @@ echo -e "[+] Checking file integrity..."
 cd /netscaler ; for i in "nsppe nsaaad nsconf nsreadfile nsconmsg"; do md5 ${i} ; done > $current_directory/forensics/file_integrity.txt
 cd $current_directory 
 
-echo -e "[+] Checking for APT5 technique with procstat: "
+echo -e "[+] Checking for APT5 technique with procstat..."
 procstat –v $(pgrep –o –i nsppe) 2>/dev/null | grep "0x10400000 " | grep "rwx" > forensics/apt5.txt
 
 echo -e "[+] Checking for potential Webshells..."
