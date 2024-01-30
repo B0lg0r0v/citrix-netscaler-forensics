@@ -41,7 +41,7 @@ fi
 echo -e "Citrix ADC Version: $(cat /var/nsinstall/adc.version)"
 #cat /var/nsinstall/adc.version
 
-echo -e "[+] Checking Failed Login Attempts by IP..."
+echo -e "\n[+] Checking Failed Login Attempts by IP..."
 for i in /var/log/ns.log*; do
     if [[ $i == *.gz ]]; then
         zcat "$i" | grep "Authentication is rejected" | awk '{$1=$2=$3=$4=$5=$6=$7=$8=""; print $0}' | sort | uniq -c | sort -nr >> forensics/login_attempts/login_attempts.txt #append the data to the file named login_attempts.txt 
@@ -100,12 +100,11 @@ cat /var/spool/cron/crontabs/nsroot 2>/dev/null > forensics/crontabs/crontab_nsr
 
 echo -e "[+] Checking file integrity..."
 current_directory=$(pwd)
-cd /netscaler ; for i in “nsppe nsaaad nsconf nsreadfile nsconmsg”; do md5 ${i} ; done >> $current_directory/forensics/file_integrity.txt
+cd /netscaler ; for i in “nsppe nsaaad nsconf nsreadfile nsconmsg”; do md5 ${i} ; done > $current_directory/forensics/file_integrity.txt
 cd $current_directory 
 
 echo -e "[+] Checking for APT5 technique with procstat: "
-touch forensics/apt5.txt
-procstat –v $(pgrep –o –i nsppe) | grep “0x10400000 “ | grep “rwx” >> forensics/apt5.txt
+procstat –v $(pgrep –o –i nsppe) 2>/dev/null | grep “0x10400000 “ | grep “rwx” > forensics/apt5.txt
 
 echo -e "[+] Checking for potential Webshells..."
 fgrep -a -e http_response_code -e '$_POST' -r /var/netscaler/ | fgrep -v -e '/var/netscaler/gui/admin_ui' -e '/netscaler/websocketd' -e '/netscaler/ns_gui/admin_ui' >> forensics/web_shells/web_shells.txt
