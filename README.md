@@ -15,6 +15,8 @@ chmod +x citrix-adc-forensics.sh
 ./citrix-adc-forensics.sh
 ```
 
+This will generate a `forensics` folder in your current working directory. 
+
 # Manual Forensics
 
 Generally located log files:
