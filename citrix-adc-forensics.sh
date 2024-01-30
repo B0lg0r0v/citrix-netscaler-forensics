@@ -1,9 +1,16 @@
 #!/usr/bin/bash
 # Forensics Script for Citrix ADC
 
-echo -e "\n#----- Generating Citrix ADC Forensics Report -----#"
-echo -e "Author: B0lg0r0v"
-echo -e "https://root.security"
+#---------Global Variables---------#
+current_directory=$(pwd)
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' 
+#----------------------------------#
+
+echo -e "\n${YELLOW}#----- Generating Citrix ADC Forensics Report -----#${NC}"
+echo -e "${YELLOW}#Author: B0lg0r0v${NC}"
+echo -e "${YELLOW}#https://root.security${NC}"
 
 if [ "$EUID" -ne 0 ]
   then echo -e "Run the script as root.\n"
@@ -99,12 +106,11 @@ cat /var/spool/cron/crontabs/netscaler 2>/dev/null > forensics/crontabs/crontab_
 cat /var/spool/cron/crontabs/nsroot 2>/dev/null > forensics/crontabs/crontab_nsroot.txt
 
 echo -e "[+] Checking file integrity..."
-current_directory=$(pwd)
 cd /netscaler ; for i in "nsppe nsaaad nsconf nsreadfile nsconmsg"; do md5 ${i} ; done > $current_directory/forensics/file_integrity.txt
 cd $current_directory 
 
 echo -e "[+] Checking for APT5 technique with procstat: "
-procstat –v $(pgrep –o –i nsppe) 2>/dev/null | grep “0x10400000 “ | grep “rwx” > forensics/apt5.txt
+procstat –v $(pgrep –o –i nsppe) 2>/dev/null | grep "0x10400000 " | grep "rwx" > forensics/apt5.txt
 
 echo -e "[+] Checking for potential Webshells..."
 fgrep -a -e http_response_code -e '$_POST' -r /var/netscaler/ | fgrep -v -e '/var/netscaler/gui/admin_ui' -e '/netscaler/websocketd' -e '/netscaler/ns_gui/admin_ui' >> forensics/web_shells/web_shells.txt
@@ -117,7 +123,7 @@ find / -type f -name *.php* -not -path "/var/netscaler/gui/admin_ui/*" -not -pat
 echo -e "[+] Checking for setuid binaries..."
 find / -perm -4000 -type f -exec ls -l {} \; 2>/dev/null > forensics/setuid_binaries.txt
 
-
+echo -e "\nResults saved in $(current_directory)/forensics"
 
 
 
