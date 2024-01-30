@@ -100,7 +100,7 @@ cat /var/spool/cron/crontabs/nsroot 2>/dev/null > forensics/crontabs/crontab_nsr
 
 echo -e "[+] Checking file integrity..."
 current_directory=$(pwd)
-cd /netscaler ; for i in “nsppe nsaaad nsconf nsreadfile nsconmsg”; do md5 ${i} ; done > $current_directory/forensics/file_integrity.txt
+cd /netscaler ; for i in "nsppe nsaaad nsconf nsreadfile nsconmsg"; do md5 ${i} ; done > $current_directory/forensics/file_integrity.txt
 cd $current_directory 
 
 echo -e "[+] Checking for APT5 technique with procstat: "
