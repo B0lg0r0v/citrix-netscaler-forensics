@@ -10,7 +10,7 @@ NC='\033[0m'
 
 echo -e "\n${YELLOW}#----- Generating Citrix ADC Forensics Report -----#${NC}"
 echo -e "${YELLOW}Author: B0lg0r0v${NC}"
-echo -e "${YELLOW}https://root.security${NC}"
+echo -e "${YELLOW}https://arthurminasyan.com${NC}"
 
 if [ "$EUID" -ne 0 ]
   then echo -e "Run the script as root.\n"
